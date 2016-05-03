@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Copyright 2013 The Android Open Source Project
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+
+<resources>
+    <string name="app_name">Cowbell</string>
+    <string name="intro_message">
+        Hey! Ready to wake up and train your brain? Below you\'ll find a button to add an alarm, create a set of
+        multiple choice cards or a set of fill-in the blank cards. If you don\'t feel like creating a set of cards, you can
+        wake up by playing our REACT minigame. You\'ll be able to select how you want to wake up at the time of setting up an alarm.
+        Good luck!
+        </string>
+</resources>
