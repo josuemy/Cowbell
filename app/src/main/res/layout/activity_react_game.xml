@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.ucsb.cowbell.ReactGameActivity">
+   >
 
     <TextView
         android:layout_width="wrap_content"
@@ -80,6 +80,7 @@
         android:singleLine="false"
         android:layout_alignTop="@+id/imageButton"
         android:layout_centerHorizontal="true"
+        android:gravity="center"
         android:autoText="false" />
 
 

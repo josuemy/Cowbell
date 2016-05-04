@@ -37,6 +37,7 @@ public class Alarm implements Comparable<Alarm>, Parcelable {
     /** Integer as a 24-hour format */
     public int hour;
     public int minute;
+    public int game;
 
     public Alarm() {}
 
@@ -46,7 +47,14 @@ public class Alarm implements Comparable<Alarm>, Parcelable {
         date = in.readInt();
         hour = in.readInt();
         minute = in.readInt();
+        game = in.readInt();
     }
+
+
+    public int getGame() {
+        return this.game;
+    }
+
 
     public static final Creator<Alarm> CREATOR = new Creator<Alarm>() {
         @Override
@@ -72,6 +80,7 @@ public class Alarm implements Comparable<Alarm>, Parcelable {
         parcel.writeInt(date);
         parcel.writeInt(hour);
         parcel.writeInt(minute);
+        parcel.writeInt(game);
     }
 
     /**
@@ -86,6 +95,7 @@ public class Alarm implements Comparable<Alarm>, Parcelable {
             jsonObject.put("date", date);
             jsonObject.put("hour", hour);
             jsonObject.put("minute", minute);
+            jsonObject.put("game", game);
         } catch (JSONException e) {
             throw new IllegalStateException("Failed to convert the object to JSON");
         }
@@ -108,6 +118,7 @@ public class Alarm implements Comparable<Alarm>, Parcelable {
             alarm.date = jsonObject.getInt("date");
             alarm.hour = jsonObject.getInt("hour");
             alarm.minute = jsonObject.getInt("minute");
+            alarm.game = jsonObject.getInt("game");
         } catch (JSONException e) {
             throw new IllegalArgumentException("Failed to parse the String: " + string);
         }
@@ -123,6 +134,7 @@ public class Alarm implements Comparable<Alarm>, Parcelable {
                 ", date=" + date +
                 ", hour=" + hour +
                 ", minute=" + minute +
+                ", game=" + game +
                 '}';
     }
 
@@ -139,12 +151,13 @@ public class Alarm implements Comparable<Alarm>, Parcelable {
                 month == alarm.month &&
                 date == alarm.date &&
                 hour == alarm.hour &&
-                minute == alarm.minute;
+                minute == alarm.minute &&
+                game == alarm.game;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, month, date, hour, minute);
+        return Objects.hash(id, month, date, hour, minute, game);
     }
 
     @Override

@@ -53,6 +53,12 @@
             android:label="@string/title_activity_react_game"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
+        <activity
+            android:name=".ReactGame.ReactGameActivity"
+            android:label="@string/title_activity_react_game"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+
 
     </application>
 

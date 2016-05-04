@@ -39,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/multiple_choice"
-        android:id="@+id/mutiple_choice_switch"
+        android:id="@+id/multiple_choice_switch"
         android:paddingBottom="@dimen/margin_small"
         android:paddingLeft="@dimen/margin_medium"
         android:paddingRight="@dimen/margin_medium" />

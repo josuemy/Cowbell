@@ -106,7 +106,7 @@ public class FillTheBlankFragment extends DialogFragment {
     }
 
     private boolean approvedWord(String toVerify){
-        String[] wordsToOmit = {"the","a","is","are","was","were","for","not","or","in","I","he","she","you","we","to","on","am","[a-zA-Z]+?","[a-zA-Z]+,"};
+        String[] wordsToOmit = {"the","a","is","are","and","was","were","for","not","or","in","I","he","she","you","we","to","on","am","[a-zA-Z]+?"};
         List<String> omitList = Arrays.asList(wordsToOmit);
         return (!(omitList.contains(toVerify)));
     }
@@ -138,7 +138,7 @@ public class FillTheBlankFragment extends DialogFragment {
                 TextView endLoseText = (TextView) v.findViewById(R.id.endLose);
 
                 public void onTick(long millisUntilFinished) {
-                    String timeRemain = "You lost sucker. Game will restart in "
+                    String timeRemain = "You lost! Game will restart in "
                             + millisUntilFinished / 1000 + "...";
                     endLoseText.setText(timeRemain);
                     endLoseText.setBackgroundColor(Color.GREEN);

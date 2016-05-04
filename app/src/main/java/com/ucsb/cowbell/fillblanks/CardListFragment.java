@@ -53,6 +53,7 @@ public class CardListFragment extends Fragment  {
     @Override
     public void onViewCreated(final View rootView, Bundle savedInstanceState) {
         super.onViewCreated(rootView, savedInstanceState);
+
         FloatingActionButton fabAdd = (FloatingActionButton) rootView.findViewById(R.id.fab_add_card);
         fabAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,19 +66,6 @@ public class CardListFragment extends Fragment  {
                 ft.commit();
             }
         });
-
-        /*
-
-        FloatingActionButton fabGame = (FloatingActionButton) rootView.findViewById(R.id.fab_play_game);
-        fabGame.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FillTheBlankFragment fragment = FillTheBlankFragment.newInstance();
-                fragment.setCancelable(false);
-                fragment.show(getFragmentManager(), FRAGMENT_FILL_THE_BLANK_TAG);
-            }
-        });
-*/
 
 
         mTextViewIntroMessage = (TextView) rootView.findViewById(R.id.text_intro_message);

@@ -1,4 +1,5 @@
 /*
+* Based on Direct Boot sample
 * Copyright 2016 The Android Open Source Project
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -35,13 +36,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.ucsb.cowbell.R;
-
 import com.ucsb.cowbell.alarm.alarms.Alarm;
 import com.ucsb.cowbell.alarm.alarms.AlarmAdapter;
 import com.ucsb.cowbell.alarm.alarms.AlarmIntentService;
 import com.ucsb.cowbell.alarm.alarms.AlarmStorage;
 import com.ucsb.cowbell.alarm.alarms.AlarmUtil;
 import com.ucsb.cowbell.fillblanks.CardListFragment;
+
 
 /**
  * Fragment that registers scheduled alarms.
@@ -53,13 +54,14 @@ public class SchedulerFragment extends Fragment {
 
     private AlarmAdapter mAlarmAdapter;
     private AlarmUtil mAlarmUtil;
-    private TextView mTextViewIntroMessage;
     private BroadcastReceiver mAlarmWentOffBroadcastReceiver;
+    private TextView mTextViewIntroMessage;
 
     public static SchedulerFragment newInstance() {
         SchedulerFragment fragment = new SchedulerFragment();
         return fragment;
     }
+
 
     public SchedulerFragment() {
         // Required empty public constructor
@@ -79,6 +81,8 @@ public class SchedulerFragment extends Fragment {
             Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_alarm_scheduler, container, false);
     }
+
+
 
     @Override
     public void onViewCreated(final View rootView, Bundle savedInstanceState) {
@@ -104,7 +108,6 @@ public class SchedulerFragment extends Fragment {
                 ft.commit();
             }
         });
-
 
         mTextViewIntroMessage = (TextView) rootView.findViewById(R.id.text_intro_message);
         Activity activity = getActivity();
@@ -152,4 +155,6 @@ public class SchedulerFragment extends Fragment {
             mAlarmAdapter.deleteAlarm(alarm);
         }
     }
+
+
 }

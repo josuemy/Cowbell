@@ -68,7 +68,7 @@ public class AlarmStorage {
      * @param minute the integer of the minute the alarm goes off
      * @return the saved {@link Alarm} instance
      */
-    public Alarm saveAlarm(int month, int date, int hour, int minute) {
+    public Alarm saveAlarm(int month, int date, int hour, int minute, int game) {
         Alarm alarm = new Alarm();
         // Ignore the Id duplication if that happens
         alarm.id = SECURE_RANDOM.nextInt();
@@ -76,6 +76,7 @@ public class AlarmStorage {
         alarm.date = date;
         alarm.hour = hour;
         alarm.minute = minute;
+        alarm.game = game;
         SharedPreferences.Editor editor = mSharedPreferences.edit();
         editor.putString(String.valueOf(alarm.id), alarm.toJson());
         editor.apply();

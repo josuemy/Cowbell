@@ -115,8 +115,8 @@ public class ReactGameActivity extends AppCompatActivity {
                 TextView endLoseText = (TextView) findViewById(R.id.endLose);
 
                 public void onTick(long millisUntilFinished) {
-                    String timeRemain = "You lost sucker. Game will restart in" +
-                            "/n" + millisUntilFinished / 1000 + "...";
+                    String timeRemain = "You lost! Game will restart in" +
+                             millisUntilFinished / 1000 + "...";
                     endLoseText.setText(timeRemain);
                     endLoseText.setBackgroundColor(Color.GREEN);
                 }
