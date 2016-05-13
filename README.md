@@ -44,9 +44,7 @@ The app works without problem and there are no events known till the moment that
 
 * If no fill-in the blank is selected, there needs to be a warning at the time of setting up an alarm and trying to choose the Fill-in the blank option
 * If more than two cards are checked and the user unchecks one, nothing will appear at the time of playing the game.
-* The user shouldn't be able to stop the alarm or a game by pressing the back button.
 * When the app is completely closed, the states of checkboxs need to be retrieved.
-* The multiple-choice card option is not available yet, so the button that would access it doesn't do anything when pressed.
 
 ##How to use the app
 When you open the app a brief set of instructions will appear in the front screen until you've set an alarm. On the bottom of the screen there are 3 buttons. Starting from the right, the first one allows you to set-up and add an alarm, the second one to create a set of fill-in the blank cards, and the third one create a set of multiple choice cards. You can create a set of fill-in the blank cards or multiple choice questions before of after setting up an alarm. When you are setting up an alarm you will have the option to select one of three ways to stop the alarm. You can choose to play a reaction game, complete a fill-in the blank card, or answer a multiple choice question. If none of this options is selected, the reaction game will be set as the DEFAULT way of stopping the alarm. 
