@@ -20,12 +20,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Click the button below to turn off the sound and play the game!"
+        android:text="Or click the button below to turn off the sound and play the game!"
         android:id="@+id/play_game_directions"
         android:gravity="center"
-        android:layout_marginTop="90dp"
-        android:layout_below="@+id/play_game_title"
-        android:layout_alignParentStart="true" />
+        android:layout_above="@+id/start_game_button"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="49dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -35,5 +35,27 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="88dp"
-        android:onClick="onClick" />
+        android:onClick="onClick"
+        android:nestedScrollingEnabled="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Game will automatically start in "
+        android:id="@+id/timeText"
+        android:layout_below="@+id/play_game_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10"
+        android:id="@+id/startGameTimer"
+        android:textColor="#d31919"
+        android:textSize="70dp"
+        android:layout_below="@+id/timeText"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="15dp" />
 </RelativeLayout>

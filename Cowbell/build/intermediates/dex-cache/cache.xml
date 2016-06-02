@@ -1,3 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="/Users/georgelieu14/CS48-Project/Cowbell/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="dab404b839eacfa1b2be03ad57823c635ebd0542">
+        <dex dex="/Users/georgelieu14/CS48-Project/Cowbell/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_c94e1718139d8a2032d5cfb71bebf84d3c91cab3/classes.dex" />
+    </item>
+    <item
+        jar="/Users/georgelieu14/CS48-Project/Cowbell/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="1b8e03daaa43fb0a4cd57e378167c2fd70454c1e">
+        <dex dex="/Users/georgelieu14/CS48-Project/Cowbell/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.3.0_08e9d6df4a23be4c5a5d9ee47242d8d0d48c44c5/classes.dex" />
+    </item>
+    <item
+        jar="/Users/georgelieu14/CS48-Project/Cowbell/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="82ce13fd19cdfde0e392f03c27edeba8d4333648">
+        <dex dex="/Users/georgelieu14/CS48-Project/Cowbell/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-cardview-v7-23.3.0_cf96b5f0e9dc47668c05751ff1b20361506f18cd/classes.dex" />
+    </item>
+    <item
+        jar="/Users/georgelieu14/CS48-Project/Cowbell/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/libs/internal_impl-23.3.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="4da5a4d697d32497c6f85567a5112e62fdfd0676">
+        <dex dex="/Users/georgelieu14/CS48-Project/Cowbell/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.3.0_a22184ce2a40e5945aa560c2fd2bcf8fe5015552/classes.dex" />
+    </item>
+    <item
+        jar="/Users/georgelieu14/CS48-Project/Cowbell/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="a0b5d60246cd9d4f3f2443611b3b4c25265840b5">
+        <dex dex="/Users/georgelieu14/CS48-Project/Cowbell/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-23.3.0_3a0b7f39a6ed614204737c3e9a6bb490435ba025/classes.dex" />
+    </item>
+    <item
+        jar="/Users/georgelieu14/CS48-Project/Cowbell/app/build/intermediates/exploded-aar/com.android.support/support-v13/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="a809555a2599054c3dcd1bf82b089315ac3a11df">
+        <dex dex="/Users/georgelieu14/CS48-Project/Cowbell/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v13-23.3.0_fe8aa9b81093e2fb870c31f8de723f32eea7a9e8/classes.dex" />
+    </item>
+    <item
+        jar="/Users/georgelieu14/CS48-Project/Cowbell/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="debf30ce0a7560396b6235edef77e447006454c2">
+        <dex dex="/Users/georgelieu14/CS48-Project/Cowbell/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-23.3.0_1fe21d6ac8a2f53542b524f990c4425c0c1e1d56/classes.dex" />
+    </item>
+    <item
+        jar="/Users/georgelieu14/CS48-Project/Cowbell/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="4a29583352473aa4d5a9f3b6f346c8161880860b">
+        <dex dex="/Users/georgelieu14/CS48-Project/Cowbell/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_1b73e971c027049249e23145f86b80f10861637c/classes.dex" />
+    </item>
+    <item
+        jar="/Users/georgelieu14/CS48-Project/Cowbell/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="23be6993826b8fd88bbc8d14928bb3b8960d3d4e">
+        <dex dex="/Users/georgelieu14/CS48-Project/Cowbell/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.3.0_6bc1f177c34d39bec094e4d2ea97da202fc51687/classes.dex" />
+    </item>
+    <item
+        jar="/Users/georgelieu14/CS48-Project/Cowbell/app/build/intermediates/exploded-aar/com.android.support/support-v13/23.3.0/jars/libs/internal_impl-23.3.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="8813bdcf7583107c4873150075d17c8072ec50cf">
+        <dex dex="/Users/georgelieu14/CS48-Project/Cowbell/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.3.0_fa4dee10119d9f42e76ba9fbbe6929b87768b897/classes.dex" />
+    </item>
+    <item
+        jar="/Users/georgelieu14/CS48-Project/Cowbell/app/build/intermediates/exploded-aar/com.android.support/design/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="f0001e71cea6ae432a00021c6f727f5ef0f3d27e">
+        <dex dex="/Users/georgelieu14/CS48-Project/Cowbell/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-23.3.0_430a7959b73e1f191e790b240e92aea65b770f31/classes.dex" />
+    </item>
+    <item
+        jar="/Users/georgelieu14/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.3.0/support-annotations-23.3.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="db7791d75a07fef9844d06236c1c59ba7bf6997c">
+        <dex dex="/Users/georgelieu14/CS48-Project/Cowbell/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.3.0_9380f93d5c94ae47493c30974a79aeb590f34090/classes.dex" />
+    </item>
+    <item
+        jar="/Users/georgelieu14/CS48-Project/Cowbell/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="8a034dd16c0dfd75fe86c52c2cd581592acc684a">
+        <dex dex="/Users/georgelieu14/CS48-Project/Cowbell/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.3.0_cf0c3736cf61fa213c27942b66b7d7ec33ab7a85/classes.dex" />
+    </item>
+
+</items>

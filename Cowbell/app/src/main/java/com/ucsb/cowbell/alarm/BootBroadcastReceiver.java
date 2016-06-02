@@ -41,7 +41,7 @@ public class BootBroadcastReceiver extends BroadcastReceiver {
 
     /**
      * Makes sure that device is properly booted
-     * @param Contxt context
+     * @param Context context
      * @param Intent intent
      * @return void
      */

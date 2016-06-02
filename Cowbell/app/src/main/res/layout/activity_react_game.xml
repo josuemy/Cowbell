@@ -15,7 +15,7 @@
         android:id="@+id/Instructions"
         android:textColor="#000000"
         android:textSize="20sp"
-        android:text="Tap the screen only when you see a lab!"
+        android:text="Tap the screen only when you see a yellow lab!"
         android:gravity="center" />
 
     <ImageButton
@@ -25,7 +25,7 @@
         android:adjustViewBounds="true"
         android:src="@drawable/pug"
         android:maxHeight="250dp"
-        android:clickable="true"
+        android:clickable="false"
         android:scaleType="fitCenter"
         android:onClick="buttonOnClick"
         android:maxWidth="250dp"
@@ -37,18 +37,18 @@
         android:layout_height="wrap_content"
         android:text="@string/time_remaining"
         android:id="@+id/TimeRemain"
-        android:layout_marginBottom="21dp"
-        android:layout_above="@+id/Timer" />
+        android:layout_above="@+id/Timer"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="120"
         android:id="@+id/Timer"
         android:textSize="50dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="32dp" />
+        android:layout_marginStart="32dp"
+        android:layout_toStartOf="@+id/Counter" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -57,18 +57,19 @@
         android:id="@+id/Counter"
         android:singleLine="true"
         android:textSize="50dp"
-        android:layout_below="@+id/TimeRemain"
-        android:layout_toEndOf="@+id/imageButton" />
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/TimeRemain" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/Amount"
         android:textColor="#fc3104"
         android:textSize="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/TimeRemain"
-        android:layout_alignStart="@+id/Counter"
-        android:layout_alignParentEnd="false" />
+        android:layout_toStartOf="@+id/Counter" />
 
     <TextView
         android:layout_width="wrap_content"

@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.ucsb.cowbell.R;
+import com.ucsb.cowbell.alarm.SchedulerFragment;
 import com.ucsb.cowbell.fillblanks.cards.Card;
 import com.ucsb.cowbell.fillblanks.cards.CardStorage;
 
@@ -66,6 +67,12 @@ public class CardSetterFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_card_setter, container, false);
         mCardTitle = (EditText) view.findViewById(R.id.input_card_title);
         mCardDescription = (EditText) view.findViewById(R.id.input_card_description);
+
+        if (SchedulerFragment.whichCard == "mc_card") {
+            mCardTitle.setHint("Write the Term here");
+            mCardDescription.setHint("Write it's Definition here");
+        }
+
         Button buttonOk = (Button) view.findViewById(R.id.button_ok_card_setter);
         buttonOk.setOnClickListener(new View.OnClickListener() {
             @Override

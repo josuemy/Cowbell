@@ -27,6 +27,7 @@ public class ReactGameActivity extends AppCompatActivity {
     private ReactModel model = new ReactModel();
     ImageButton button;
     MediaPlayer mp;
+    CountDownTimer reactTimer;
     /**
      * getter for the numberOfTries
      * @return int numOfTries
@@ -52,7 +53,7 @@ public class ReactGameActivity extends AppCompatActivity {
      * creates another timer that calls a function that changes the image every few seconds.
      */
     public void updateImage(final View v){
-        new CountDownTimer(60000, 900) { //60000 for one minute
+        new CountDownTimer(45000, 900) { //60000 for one minute
             public void onTick(long millisUntilFinished) {
                 generateImage(v);
             }
@@ -77,6 +78,7 @@ public class ReactGameActivity extends AppCompatActivity {
         Integer random = images.get(index);
         button =  (ImageButton) findViewById(R.id.imageButton);
         button.setImageResource(random);
+        button.setEnabled(true);
 
     }
 
@@ -87,7 +89,7 @@ public class ReactGameActivity extends AppCompatActivity {
      */
     public void updateTimer(final View v){
         //http://developer..com/reference/android/os/CountDownTimer.html
-        new CountDownTimer(60000, 1000) { //120000 for two minutes
+        reactTimer = new CountDownTimer(45000, 1000) { //120000 for two minutes
             TextView mTextField = (TextView) findViewById(R.id.Timer);
 
             public void onTick(long millisUntilFinished) {
@@ -117,9 +119,11 @@ public class ReactGameActivity extends AppCompatActivity {
 
         if (button.getDrawable().getConstantState().equals(getDrawable(R.drawable.yellowlabpuppy).getConstantState())) {
             updateCounter(v, 1);
+            //button.setEnabled(false);
         } else {
             updateCounter(v, -2);
         }
+        button.setEnabled(false);
     }
 
     /**
@@ -157,10 +161,12 @@ public class ReactGameActivity extends AppCompatActivity {
         //do things with a dialogue box.
         mp = MediaPlayer.create(this, R.raw.fur_elise);
         numOfTries++;
+        reactTimer.cancel();
+        button.setEnabled(false);
         if(this.getNumOfTries() < 3) {
 
             //dialogue box then restart game
-            new CountDownTimer(5000, 1000) { //120000 for two minutes
+            new CountDownTimer(6000, 1000) { //120000 for two minutes
                 TextView endLoseText = (TextView) findViewById(R.id.endLose);
 
                 public void onTick(long millisUntilFinished) {
@@ -170,6 +176,7 @@ public class ReactGameActivity extends AppCompatActivity {
                             "\n" + millisUntilFinished / 1000 + "...";
                     endLoseText.setText(timeRemain);
                     endLoseText.setBackgroundColor(Color.RED);
+
                 }
 
                 public void onFinish() {
@@ -183,6 +190,8 @@ public class ReactGameActivity extends AppCompatActivity {
         else{
             //exit activity and return to main screen.
             numOfTries = 0;
+
+            this.finish();
             Intent gameIntent = new Intent(this, MainActivity.class);
             gameIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(gameIntent);

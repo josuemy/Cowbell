@@ -26,6 +26,17 @@
         android:visibility="gone"
         />
 
+    <TextView
+        android:id="@+id/mc_text_intro_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_below="@id/text_set_cards"
+        android:text="@string/mc_card_intro_message"
+        android:textSize="20sp"
+        android:visibility="gone"
+        />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view_cards"
         android:layout_width="match_parent"
@@ -38,9 +49,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
+        android:layout_margin="@dimen/margin_large"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_margin="20sp"
         android:src="@drawable/ic_add_white_24dp"
         />
 

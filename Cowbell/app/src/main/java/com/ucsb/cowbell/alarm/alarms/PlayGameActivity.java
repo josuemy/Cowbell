@@ -3,11 +3,15 @@ package com.ucsb.cowbell.alarm.alarms;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.ucsb.cowbell.R;
 import com.ucsb.cowbell.ReactGame.ReactGameActivity;
+import com.ucsb.cowbell.alarm.MainActivity;
 import com.ucsb.cowbell.fillblanks.FillTheBlankFragment;
 import com.ucsb.cowbell.multiplechoice.MultipleChoiceQuestionFragment;
 
@@ -22,6 +26,7 @@ public class PlayGameActivity extends AppCompatActivity {
 
     MediaPlayer mp;
 
+    CountDownTimer playGameTimer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +37,8 @@ public class PlayGameActivity extends AppCompatActivity {
         mp = MediaPlayer.create(this, R.raw.fur_elise);
         mp.start();
         mp.setLooping(true);
+
+        this.beginTimer(this.getCurrentFocus());
     }
 
     @Override
@@ -40,16 +47,26 @@ public class PlayGameActivity extends AppCompatActivity {
         mp.stop();
     }
 
-    public void onClick(final View v){
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+
+
+    public void onClick(final View v) {
+        playGameTimer.cancel();
+        startGame();
+    }
+
+    public void startGame(){
         mp.stop();
 
         //http://stackoverflow.com/questions/5343544/send-a-variable-between-classes-through-the-intent
         Bundle bundle = getIntent().getExtras();
         int gameType = bundle.getInt("game_type");
 
-
-
-		if(gameType == 0) { //fill blank
+        if(gameType == 0) { //fill blank
             FillTheBlankFragment fragment = FillTheBlankFragment.newInstance();
             fragment.setCancelable(false);
             fragment.show(getSupportFragmentManager(),FRAGMENT_FILL_IN_THE_BLANK);
@@ -76,4 +93,34 @@ public class PlayGameActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Starts a timer so that if the alarm goes off, the user
+     * still has to play the game after 10 seconds if they
+     * do not press the button.
+     * @param v
+     */
+    public void beginTimer(View v){
+        playGameTimer=new CountDownTimer(11000,1000){ //120000 for two minutes
+            TextView mTextField=(TextView)findViewById(R.id.startGameTimer);
+            public void onTick(long millisUntilFinished){
+                String timeRemain=""+millisUntilFinished/1000;
+                mTextField.setText(timeRemain);
+            }
+
+            public void onFinish(){
+                String done="done!";
+                mTextField.setText(done);
+                startGame();
+            }
+        }.start();
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        Intent gameIntent = new Intent(this, MainActivity.class);
+        gameIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(gameIntent);
+
+    }
 }

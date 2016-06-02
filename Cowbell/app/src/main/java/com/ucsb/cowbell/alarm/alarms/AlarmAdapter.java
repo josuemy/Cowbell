@@ -45,12 +45,13 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.AlarmViewHol
     private SortedList<Alarm> mAlarmList;
     private AlarmStorage mAlarmStorage;
     private AlarmUtil mAlarmUtil;
-    private DateFormat mDateFormat;
+    //private DateFormat mDateFormat;
     private DateFormat mTimeFormat;
     private Context mContext;
 /**
  * Creates AlarmAdapter instance 
  * @param Context context
+ * @param Set<Alarm> alarms
  */
  
     public AlarmAdapter(Context context, Set<Alarm> alarms) {
@@ -59,8 +60,8 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.AlarmViewHol
         mAlarmStorage = new AlarmStorage(context);
         mContext = context;
         mAlarmUtil = new AlarmUtil(context);
-        mDateFormat = new SimpleDateFormat("MMM dd", Locale.getDefault());
-        mTimeFormat = new SimpleDateFormat("kk:mm", Locale.getDefault());
+      //  mDateFormat = new SimpleDateFormat("E MMM dd", Locale.getDefault());
+        mTimeFormat = new SimpleDateFormat("hh:mm a", Locale.getDefault());
     }
     /**
      * Creates container for viewable items
@@ -82,7 +83,7 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.AlarmViewHol
      * @parm int position
      * @return void
      */
-     
+
     @Override
     public void onBindViewHolder(AlarmViewHolder holder, final int position) {
         Alarm alarm = mAlarmList.get(position);
@@ -91,10 +92,14 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.AlarmViewHol
         alarmTime.set(Calendar.DATE, alarm.date);
         alarmTime.set(Calendar.HOUR_OF_DAY, alarm.hour);
         alarmTime.set(Calendar.MINUTE, alarm.minute);
-        holder.mAlarmTimeTextView
-                .setText(mTimeFormat.format(alarmTime.getTime()));
-        holder.mAlarmDateTextView
-                .setText(mDateFormat.format(alarmTime.getTime()));
+
+        holder.mAlarmTimeTextView.setText(mTimeFormat.format(alarmTime.getTime()));
+        holder.mAlarmTimeTextView.setTextSize(30);
+        //holder.mAlarmDateTextView.setText(mDateFormat.format(alarmTime.getTime()));
+        //holder.mAlarmDateTextView.setTextSize(15);
+        holder.mAlarmNameTextView.setText(alarm.name);
+        holder.mAlarmNameTextView.setTextSize(15);
+
         holder.mDeleteImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -132,7 +137,8 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.AlarmViewHol
     public static class AlarmViewHolder extends RecyclerView.ViewHolder {
 
         private TextView mAlarmTimeTextView;
-        private TextView mAlarmDateTextView;
+        //private TextView mAlarmDateTextView;
+        private TextView mAlarmNameTextView;
         private ImageView mDeleteImageView;
         
         /** constructor for AlarmViewHolder
@@ -142,8 +148,9 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.AlarmViewHol
         public AlarmViewHolder(View itemView) {
             super(itemView);
             mAlarmTimeTextView = (TextView) itemView.findViewById(R.id.text_alarm_time);
-            mAlarmDateTextView = (TextView) itemView.findViewById(R.id.text_alarm_date);
+            //mAlarmDateTextView = (TextView) itemView.findViewById(R.id.text_alarm_date);
             mDeleteImageView = (ImageView) itemView.findViewById(R.id.image_delete_alarm);
+            mAlarmNameTextView = (TextView) itemView.findViewById(R.id.text_alarm_name);
         }
     }
 

@@ -16,8 +16,10 @@
 
 package com.ucsb.cowbell.alarm;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Window;
 
 import com.ucsb.cowbell.R;
 
@@ -27,7 +29,7 @@ import com.ucsb.cowbell.R;
 public class MainActivity extends AppCompatActivity {
 
     /** Sets up View for the launcher by calling SchedulerFragment
-     * @param Bundle savedInstanceState
+     * @param savedInstanceState savedInstanceState
      */
      
     @Override
@@ -41,4 +43,13 @@ public class MainActivity extends AppCompatActivity {
                     .commit();
         }
     }
+    @Override
+    public void onBackPressed(){
+        Intent gameIntent = new Intent(this, MainActivity.class);
+        gameIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(gameIntent);
+    }
+
+
+
 }

@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 
+import com.ucsb.cowbell.alarm.SchedulerFragment;
+
 import java.security.SecureRandom;
 import java.util.HashSet;
 import java.util.Map;
@@ -15,8 +17,6 @@ import java.util.Set;
  */
 
 public class CardStorage {
-
-    private static final String CARD_PREFERENCES_NAME = "card_preferences";
     private static final SecureRandom SECURE_RANDOM = new SecureRandom();
 
     public SharedPreferences mSharedPreferences;
@@ -27,8 +27,18 @@ public class CardStorage {
     * */
     public CardStorage(Context context) {
         Context storageContext = context;
-        mSharedPreferences = storageContext.getSharedPreferences(CARD_PREFERENCES_NAME,Context.MODE_PRIVATE);
+        mSharedPreferences = storageContext.getSharedPreferences(SchedulerFragment.whichCard,Context.MODE_PRIVATE);
+    }
 
+    /*
+    * Two arg constructor
+    * Can specify which Shared Preference to access
+     */
+    public CardStorage(Context context, String pref) {
+        Context storageContext = context;
+        // FIB = "card_preferences"
+        // MC = "mc_card"
+        mSharedPreferences = storageContext.getSharedPreferences(pref,Context.MODE_PRIVATE);
     }
 
     // Converts Card to JSON and then saves it using Shared Preferences

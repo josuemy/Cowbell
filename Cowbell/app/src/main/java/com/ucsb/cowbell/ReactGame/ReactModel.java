@@ -1,6 +1,6 @@
 package com.ucsb.cowbell.ReactGame;
 
-        /**
+/**
  * Created by georgelieu14 on 4/29/16.
  */
 
@@ -16,6 +16,8 @@ public class ReactModel {
         counter = counter + amount;
         if(counter < 0)
             counter = 0;
+        if (counter > 5)
+            counter = 5;
     }
 
 

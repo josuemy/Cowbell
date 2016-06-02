@@ -3,7 +3,11 @@
     android:id="@+id/fill_the_blank_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/margin_medium"
+    android:paddingTop="@dimen/margin_small"
+    android:paddingRight="@dimen/margin_medium"
+    android:paddingBottom="@dimen/margin_small">
 
     <TextView
         android:id="@+id/title_fill_the_blank"
@@ -23,7 +27,7 @@
         android:textSize="25sp"
         android:gravity="center"
         android:layout_weight="1"
-        android:text="You Haven't selected anything"
+        android:text="You haven&apos;t selected anything!"
         />
 
     <EditText

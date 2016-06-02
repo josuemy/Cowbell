@@ -53,24 +53,6 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
         cardViewHolder.mCardTitle.setText(mCardList.get(position).title);
         cardViewHolder.mCardDescription.setText(mCardList.get(position).description);
 
-        cardViewHolder.mCheckBox.setChecked(mCardList.get(position).isSelected());
-        cardViewHolder.mCheckBox.setTag(mCardList.get(position));
-
-        cardViewHolder.mCheckBox.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                CheckBox cb = (CheckBox) view;
-                Card card = (Card) cb.getTag();
-                card.setSelected(cb.isChecked());
-                card.changeDescriptionSelected(card.description);
-                if (cb.isChecked()) {
-                    Toast.makeText(mContext, "Only the last card selected will count", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(mContext, "Select another card", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-        });
-
         cardViewHolder.mDeleteImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -110,7 +92,6 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
             mCardTitle = (TextView) itemView.findViewById(R.id.text_card_title);
             mCardDescription = (TextView) itemView.findViewById(R.id.text_card_description);
             mDeleteImageView = (ImageView) itemView.findViewById(R.id.image_delete_card);
-            mCheckBox = (CheckBox) itemView.findViewById(R.id.checkBox);
         }
     }
 

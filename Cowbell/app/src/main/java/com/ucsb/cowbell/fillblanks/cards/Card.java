@@ -18,8 +18,6 @@ public class Card implements Comparable<Card>, Parcelable{
     public int id;
     public String title;
     public String description;
-    boolean isSelected;
-    public static String descriptionSelected;
 
     // default constructor
     public Card(){}
@@ -132,23 +130,6 @@ public class Card implements Comparable<Card>, Parcelable{
         Card card = new Card(title,description);
 
         return card.title.compareToIgnoreCase(other.title);
-
-    }
-
-    // Helper functions for fillInTheBlankFragment
-    public boolean isSelected() {
-        return isSelected;
-    }
-
-    public void setSelected(boolean isSelected) {
-        this.isSelected = isSelected;
-    }
-
-    public void changeDescriptionSelected (String descriptionSelected){
-        if(isSelected()){
-            this.descriptionSelected = descriptionSelected;
-        }
-        else this.descriptionSelected = "You haven't selected anything";
 
     }
 

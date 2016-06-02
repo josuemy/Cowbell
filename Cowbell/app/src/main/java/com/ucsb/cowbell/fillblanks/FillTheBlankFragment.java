@@ -1,6 +1,7 @@
 package com.ucsb.cowbell.fillblanks;
 
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
@@ -16,13 +17,13 @@ import android.widget.Toast;
 
 import com.ucsb.cowbell.R;
 import com.ucsb.cowbell.fillblanks.cards.Card;
-import com.ucsb.cowbell.fillblanks.cards.CardAdapter;
 import com.ucsb.cowbell.fillblanks.cards.CardStorage;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 
 /**
@@ -34,9 +35,11 @@ public class FillTheBlankFragment extends DialogFragment {
     private EditText mInputAnswer;
     private TextView mCardDescription;
     private CardStorage mCardStorage;
-    private CardAdapter mCardAdapter;
+
     private String mActualAnswer;
     private int numOfTries;
+    MediaPlayer mp;
+    CountDownTimer blankTimer;
 
     /**
      * Empty Constructor
@@ -63,7 +66,7 @@ public class FillTheBlankFragment extends DialogFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mCardStorage = new CardStorage(getActivity());
+        mCardStorage = new CardStorage(getActivity(),"card_preferences");
     }
 
 
@@ -78,7 +81,7 @@ public class FillTheBlankFragment extends DialogFragment {
         mCardDescription = (TextView) view.findViewById(R.id.description_to_complete);
 
         //grabs description from the card which checkbox has been selected
-        mCardDescription.setText(Card.descriptionSelected);
+        mCardDescription.setText(getRandomCardDescription());
         changeDescription();
 
         mInputAnswer = (EditText) view.findViewById(R.id.answer_input);
@@ -106,12 +109,12 @@ public class FillTheBlankFragment extends DialogFragment {
     private void changeDescription(){
 
         //splits the string by commas or spaces
-        List<String> myList = new ArrayList<String>(Arrays.asList(mCardDescription.getText().toString().split("\\s*(\\s|,|\\s)\\s*")));
+        List<String> myList = new ArrayList<String>(Arrays.asList(mCardDescription.getText().toString().split("\\s*(\\s|,|\\.|\\s)\\s*")));
         int idx = new Random().nextInt(myList.size());
         if(approvedWord(myList.get(idx))) {
             mActualAnswer = (myList.get(idx));
             myList.set(idx, "_____");
-            String result = TextUtils.join(" ",myList) + "  A:" + mActualAnswer;
+            String result = TextUtils.join(" ",myList) /* + "  A:" + mActualAnswer*/ ;
             mCardDescription.setText(result);
         }else{
             changeDescription();
@@ -123,8 +126,10 @@ public class FillTheBlankFragment extends DialogFragment {
      * @param toVerify the word to be replaced with a space
      * @return true if the word is safe to replace
      */
-    private boolean approvedWord(String toVerify){
-        String[] wordsToOmit = {"the","a","is","are","and","was","were","for","not","or","in","I","he","she","you","we","to","on","am","[a-zA-Z]+?","of"};
+    public boolean approvedWord(String toVerify){
+        String[] wordsToOmit = {"the","a","is","are","and","was","were","for","not","or","in","I","it","he",
+                "she","you","we","they","no","to","on","am","of"};
+
         List<String> omitList = Arrays.asList(wordsToOmit);
         return (!(omitList.contains(toVerify)));
     }
@@ -136,7 +141,7 @@ public class FillTheBlankFragment extends DialogFragment {
      */
     public void updateTimer(final View v) {
 
-        new CountDownTimer(12000, 1000) {
+        blankTimer = new CountDownTimer(12000, 1000) {
             TextView mTextField = (TextView) v.findViewById(R.id.timer);
 
             public void onTick(long millisUntilFinished) {
@@ -161,30 +166,46 @@ public class FillTheBlankFragment extends DialogFragment {
      */
     public void gameOver(final View v) {
 
+        mp = MediaPlayer.create(getActivity(), R.raw.fur_elise);
+        blankTimer.cancel();
         numOfTries++;
         if (numOfTries < 3) {
-            new CountDownTimer(8000, 1000) {
+            new CountDownTimer(6000, 1000) {
                 TextView endLoseText = (TextView) v.findViewById(R.id.endLose);
 
                 public void onTick(long millisUntilFinished) {
+                    mp.start();
+                    mp.setLooping(true);
                     String timeRemain = "You lost! Game will restart in "
                             + millisUntilFinished / 1000 + "...";
                     endLoseText.setText(timeRemain);
-                    endLoseText.setBackgroundColor(Color.GREEN);
+                    endLoseText.setBackgroundColor(Color.RED);
                 }
 
                 public void onFinish() {
                     //new activity
+                    mp.stop();
                     String empty = "";
                     endLoseText.setText(empty);
                     updateTimer(v);
                 }
             }.start();
         } else {
+            mp.stop();
             numOfTries = 0;
             dismiss();
             getActivity().finish();
         }
+    }
+
+    public String getRandomCardDescription(){
+
+        mCardStorage = new CardStorage(getActivity(),"card_preferences");
+        Set<Card> mSet = mCardStorage.getCards();
+        List<Card> mList = new ArrayList<Card>(mSet);
+        Card card = mList.get(new Random().nextInt(mList.size()));
+        return card.description;
+
     }
 
 }

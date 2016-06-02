@@ -1,91 +1,102 @@
-<?xml version="1.0" encoding="utf-8"?><!--
- Copyright 2016 The Android Open Source Project
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true">
 
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
--->
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/container"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <TimePicker
-        android:id="@+id/time_picker_alarm"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/margin_medium" />
+        android:orientation="vertical"
+        android:nestedScrollingEnabled="true"
+        android:baselineAligned="false">
 
-    <Switch
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/Game_switch"
-        android:id="@+id/react_switch"
-        android:paddingRight="@dimen/margin_medium"
-        android:paddingBottom="@dimen/margin_small"
-        android:paddingLeft="@dimen/margin_medium" />
 
-    <Switch
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/multiple_choice"
-        android:id="@+id/multiple_choice_switch"
-        android:paddingBottom="@dimen/margin_small"
-        android:paddingLeft="@dimen/margin_medium"
-        android:paddingRight="@dimen/margin_medium" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/nameOfAlarm"
+            android:hint="@string/enter_your_alarm_name_here"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:linksClickable="false"
+            android:paddingTop="@dimen/margin_small"
+            android:paddingBottom="@dimen/margin_small"
+            android:textStyle="italic" />
 
-    <Switch
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/Fill_blank"
-        android:id="@+id/Fill_Blank_Switch"
-        android:paddingLeft="@dimen/margin_medium"
-        android:paddingRight="@dimen/margin_medium"
-        android:paddingBottom="@dimen/margin_small" />
-
-    <LinearLayout
-        android:id="@+id/button_panel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingStart="@dimen/margin_medium"
-        android:paddingEnd="@dimen/margin_medium"
-        android:paddingTop="@dimen/margin_small"
-        android:paddingBottom="@dimen/margin_small"
-        android:gravity="bottom"
-        style="?android:attr/buttonBarStyle">
-
-        <Space
-            android:id="@+id/spacer"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:visibility="invisible" />
-
-        <Button
-            android:id="@+id/button_cancel_time_picker"
-            style="?android:attr/buttonBarNegativeButtonStyle"
+        <TimePicker
+            android:id="@+id/time_picker_alarm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/cancel"
-            />
+            android:paddingBottom="@dimen/margin_small" />
 
-        <Button
-            android:id="@+id/button_ok_time_picker"
-            style="?android:attr/buttonBarPositiveButtonStyle"
-            android:layout_width="wrap_content"
+        <Switch
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ok"
-            />
+            android:text="@string/Game_switch"
+            android:id="@+id/react_switch"
+            android:checked="false"
+            android:textSize="15sp"
+            android:paddingRight="@dimen/margin_small"
+            android:paddingLeft="@dimen/margin_small"
+            android:paddingBottom="@dimen/margin_small" />
+
+        <Switch
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/multiple_choice"
+            android:id="@+id/multiple_choice_switch"
+            android:paddingLeft="@dimen/margin_small"
+            android:paddingRight="@dimen/margin_small"
+            android:textSize="15sp"
+            android:paddingBottom="@dimen/margin_small" />
+
+        <Switch
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Fill_blank"
+            android:id="@+id/Fill_Blank_Switch"
+            android:paddingLeft="@dimen/margin_small"
+            android:paddingRight="@dimen/margin_small"
+            android:textSize="15sp"
+            android:paddingBottom="@dimen/margin_small" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            >
+
+            <Space
+                android:id="@+id/spacer"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/button_cancel_time_picker"
+                style="?android:attr/buttonBarNegativeButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cancel2"
+                android:textSize="15sp"
+                android:paddingRight="@dimen/margin_small"
+                android:paddingLeft="@dimen/margin_small" />
+
+            <Button
+                android:id="@+id/button_ok_time_picker"
+                style="?android:attr/buttonBarPositiveButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ok2"
+                android:textSize="15sp"
+                android:paddingEnd="@dimen/margin_small"
+                android:paddingStart="@dimen/margin_small"
+                android:paddingRight="@dimen/margin_small"
+                android:paddingLeft="@dimen/margin_small" />
+
+        </LinearLayout>
+
     </LinearLayout>
-</LinearLayout>
+</ScrollView>

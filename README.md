@@ -3,8 +3,16 @@
 An Android alarm clock app that helps you learn and train your brain when you wake up.
 
 ##Preview
-<img src="https://cloud.githubusercontent.com/assets/16602140/14996743/56824bee-1130-11e6-8282-98bfa220c32a.png" width="45%"></img> <img src="https://cloud.githubusercontent.com/assets/16602140/14996761/684d77e0-1130-11e6-8bed-dbc0e86f6c47.png" width="45%"></img> <img src="https://cloud.githubusercontent.com/assets/16602140/14996762/684db336-1130-11e6-8b8e-643525c76c2c.png" width="45%"></img> <img src="https://cloud.githubusercontent.com/assets/16602140/14996763/684e7abe-1130-11e6-8484-d2cff5e84014.png" width="45%"></img>
-
+<img src="http://i.imgur.com/CWWkfNn.png" width="45%"></img>
+<img src="http://i.imgur.com/rLW6rEd.png" width="45%"></img>
+<img src="http://i.imgur.com/OcKN46S.png" width="45%"></img>
+<img src="http://i.imgur.com/UkjW0pS.png" width="45%"></img>
+<img src="http://i.imgur.com/GwgvwOk.png" width="45%"></img>
+<img src="http://i.imgur.com/tOI1juC.png" width="45%"></img>
+<img src="http://i.imgur.com/MC4H24n.png" width="45%"></img>
+<img src="http://i.imgur.com/vnAXVlk.png" width="45%"></img>
+<img src="http://i.imgur.com/xjAxaHs.png" width="45%"></img>
+<img src="http://i.imgur.com/iwhmDHU.png" width="45%"></img>
 
 ##Getting Started
 
@@ -42,14 +50,16 @@ http://developer.android.com/sdk/installing/studio.html
 ###Known Bugs & Issues
 The app works without problem and there are no events known till the moment that would make the app crash. In the other hand there are some issues that need to be solved:
 
-* If no fill-in the blank is selected, there needs to be a warning at the time of setting up an alarm and trying to choose the Fill-in the blank option
-* If more than two cards are checked and the user unchecks one, nothing will appear at the time of playing the game.
-* When the app is completely closed, the states of checkboxs need to be retrieved.
+
+* Ringtone needs to be fully implemented
+* On the Card creation screens, when the user presses back, it takes the user to the Alarm list screen, instead of the Card list screen
+* On the main alarm list screen, the user cannot press the back button to exit the app and go to the phone's main screen. However, they can still use the home button to do this. 
+
 
 ##How to use the app
-When you open the app a brief set of instructions will appear in the front screen until you've set an alarm. On the bottom of the screen there are 3 buttons. Starting from the right, the first one allows you to set-up and add an alarm, the second one to create a set of fill-in the blank cards, and the third one create a set of multiple choice cards. You can create a set of fill-in the blank cards or multiple choice questions before of after setting up an alarm. When you are setting up an alarm you will have the option to select one of three ways to stop the alarm. You can choose to play a reaction game, complete a fill-in the blank card, or answer a multiple choice question. If none of this options is selected, the reaction game will be set as the DEFAULT way of stopping the alarm. 
+When you open the app a brief set of instructions will appear in the front screen until you've set an alarm. On the bottom of the screen there are 3 buttons. Starting from the right, the first one allows you to set-up and add an alarm, the second one to create a set of fill-in the blank cards, and the third one create a set of multiple choice cards. When creating an alarm instance, you can customize the alarm name, time, and game mode. For the fill and in the blank and multiple choice modes, you can create a set of fill-in the blank cards or multiple choice questions before of after setting up an alarm. When you are setting up an alarm you will have the option to select one of three ways to stop the alarm. You can choose to play a reaction game, complete a fill-in the blank card, or answer a multiple choice question. If none of this options is selected, the reaction game will be set as the DEFAULT way of stopping the alarm. The multiple choice game will remain unselectable until the user creates at least four multiple choice flashcards and the fill in the blank will be unselectable until three flashcards are created.  
 
-When you create a set of fill-in the blank, you'll be able to select only one of them to be the one that shows up at the time of shutting down the alarm. Only your last selection will count. That means that if you check/uncheck more than one, only the last check/uncheck will be taken into account.
+When you create a set of fill-in the blank, you'll be able to select only one of them to be the one that shows up at the time of shutting down the alarm. When the game is launched, the system will pick a random fill in the blank card from the entire list to be displayed. 
 
 After you've created and selected which card you are gonna use to stop the alarm you are set and ready to wake up and learn! Enjoy!
 

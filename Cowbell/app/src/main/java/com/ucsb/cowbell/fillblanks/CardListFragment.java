@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.ucsb.cowbell.R;
 
+import com.ucsb.cowbell.alarm.SchedulerFragment;
 import com.ucsb.cowbell.fillblanks.cards.Card;
 import com.ucsb.cowbell.fillblanks.cards.CardAdapter;
 import com.ucsb.cowbell.fillblanks.cards.CardStorage;
@@ -28,7 +29,9 @@ public class CardListFragment extends Fragment  {
 
     private  static final String FRAGMENT_CARD_SETTER_TAG = "fragment_card_setter";
 
-    private TextView mTextViewIntroMessage;
+    private TextView mcTextViewIntroMessage;
+    private TextView fibTextViewIntroMessage;
+    private TextView setOfCards;
     private CardAdapter mCardAdapter;
 
     /**
@@ -80,12 +83,21 @@ public class CardListFragment extends Fragment  {
         });
 
 
-        mTextViewIntroMessage = (TextView) rootView.findViewById(R.id.text_intro_message);
+        fibTextViewIntroMessage = (TextView) rootView.findViewById(R.id.text_intro_message);
+        mcTextViewIntroMessage = (TextView) rootView.findViewById(R.id.mc_text_intro_message);
+        setOfCards = (TextView) rootView.findViewById(R.id.text_set_cards);
         Activity activity = getActivity();
         CardStorage cardStorage = new CardStorage(activity);
         mCardAdapter = new CardAdapter(activity, cardStorage.getCards());
         if (mCardAdapter.getItemCount() == 0) {
-            mTextViewIntroMessage.setVisibility(View.VISIBLE);
+            if (SchedulerFragment.whichCard == "card_preferences") {
+                fibTextViewIntroMessage.setVisibility(View.VISIBLE);
+                setOfCards.setText("Fill in the Blank Cards");
+            }
+            else if (SchedulerFragment.whichCard == "mc_card") {
+                mcTextViewIntroMessage.setVisibility(View.VISIBLE);
+                setOfCards.setText("Multiple Choice Question Cards");
+            }
         }
 
 
@@ -107,12 +119,12 @@ public class CardListFragment extends Fragment  {
 
         public void onCardAdded(Card card){
             mCardAdapter.addCard(card);
-            mTextViewIntroMessage.setVisibility(View.GONE);
+            mcTextViewIntroMessage.setVisibility(View.GONE);
+            fibTextViewIntroMessage.setVisibility(View.GONE);
         }
-
-
-
     }
+
+
 
 
 

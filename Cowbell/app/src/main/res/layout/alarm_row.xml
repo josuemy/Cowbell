@@ -15,26 +15,33 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="@dimen/alarm_row_height"
-    android:layout_marginLeft="@dimen/margin_medium"
-    android:layout_marginRight="@dimen/margin_medium" >
+    android:layout_marginLeft="@dimen/margin_tiny"
+    android:layout_marginRight="@dimen/margin_tiny"
+    android:paddingTop="@dimen/margin_tiny">
 
     <TextView
         android:id="@+id/text_alarm_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_medium"
-        android:textSize="52sp"
-        />
+        android:layout_marginStart="@dimen/margin_tiny"
+        android:paddingRight="@dimen/margin_tiny" />
 
-    <TextView
-        android:id="@+id/text_alarm_date"
+ <!-- <TextView
+        android:id="@+id/text_alarm_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/text_alarm_time"
-        android:layout_marginStart="@dimen/margin_small"
-        android:layout_alignBaseline="@id/text_alarm_time"
-        android:textSize="20sp"
-        />
+        android:layout_marginStart="@dimen/margin_tiny"
+        android:layout_below="@+id/text_alarm_time" />
+-->
+    <TextView
+        android:id="@+id/text_alarm_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_tiny"
+        android:textStyle="bold"
+        android:layout_below="@+id/text_alarm_time"
+        android:layout_marginBottom="@dimen/margin_tiny" />
+
 
     <ImageView
         android:id="@+id/image_delete_alarm"

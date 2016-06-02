@@ -38,6 +38,7 @@ public class Alarm implements Comparable<Alarm>, Parcelable {
     public int hour;
     public int minute;
     public int game;
+    public String name = "";
 
     /** Creates Alarm instance */
     public Alarm() {}
@@ -51,6 +52,7 @@ public class Alarm implements Comparable<Alarm>, Parcelable {
         hour = in.readInt();
         minute = in.readInt();
         game = in.readInt();
+        name  = in.readString();
     }
 
     /** Returns game value of an (@link Alarm} instance */
@@ -85,6 +87,7 @@ public class Alarm implements Comparable<Alarm>, Parcelable {
         parcel.writeInt(hour);
         parcel.writeInt(minute);
         parcel.writeInt(game);
+        parcel.writeString(name);
     }
 
     /**
@@ -100,6 +103,7 @@ public class Alarm implements Comparable<Alarm>, Parcelable {
             jsonObject.put("hour", hour);
             jsonObject.put("minute", minute);
             jsonObject.put("game", game);
+            jsonObject.put("name", name);
         } catch (JSONException e) {
             throw new IllegalStateException("Failed to convert the object to JSON");
         }
@@ -123,6 +127,7 @@ public class Alarm implements Comparable<Alarm>, Parcelable {
             alarm.hour = jsonObject.getInt("hour");
             alarm.minute = jsonObject.getInt("minute");
             alarm.game = jsonObject.getInt("game");
+            alarm.name = jsonObject.getString("name");
         } catch (JSONException e) {
             throw new IllegalArgumentException("Failed to parse the String: " + string);
         }
@@ -142,6 +147,7 @@ public class Alarm implements Comparable<Alarm>, Parcelable {
                 ", hour=" + hour +
                 ", minute=" + minute +
                 ", game=" + game +
+                ", name=" + name +
                 '}';
     }
     
@@ -164,7 +170,8 @@ public class Alarm implements Comparable<Alarm>, Parcelable {
                 date == alarm.date &&
                 hour == alarm.hour &&
                 minute == alarm.minute &&
-                game == alarm.game;
+                game == alarm.game &&
+                name == alarm.name;
     }
 
     @Override

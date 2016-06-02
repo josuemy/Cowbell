@@ -48,8 +48,8 @@ public class AlarmIntentService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         Context context = getApplicationContext();
-        //Alarm alarm = intent.getParcelableExtra(ALARM_KEY);
         Alarm alarm = intent.getParcelableExtra(ALARM_KEY);
+
 
 
         NotificationManager notificationManager = context
@@ -69,34 +69,18 @@ public class AlarmIntentService extends IntentService {
 
         AlarmStorage alarmStorage = new AlarmStorage(context);
 
-/*
-        if(alarm.game == 1) { // multipleChoice game
-            Intent gameIntent = new Intent(this, FlashcardActivity.class);
-            gameIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(gameIntent);
-        }
-        else if(alarm.game == 2) { // reaction game
-            Intent gameIntent = new Intent(this, ReactGameActivity.class);
-            gameIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(gameIntent);
-        }
-        else { // fill in the blank game by default
-            Intent gameIntent = new Intent(this, FlashcardActivity.class);
-            gameIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(gameIntent);
-        }
-
-*/
-       Intent gameIntent = new Intent(getApplicationContext(), PlayGameActivity.class);
-       gameIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        Intent gameIntent = new Intent(getApplicationContext(), PlayGameActivity.class);
+        gameIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         //http://stackoverflow.com/questions/5343544/send-a-variable-between-classes-through-the-intent
         gameIntent.putExtra("game_type", alarm.game);
-       startActivity(gameIntent);
+        startActivity(gameIntent);
 
         alarmStorage.deleteAlarm(alarm);
         Intent wentOffIntent = new Intent(ALARM_WENT_OFF_ACTION);
         wentOffIntent.putExtra(ALARM_KEY, alarm);
         LocalBroadcastManager.getInstance(context).sendBroadcast(wentOffIntent);
+
+
     }
 }

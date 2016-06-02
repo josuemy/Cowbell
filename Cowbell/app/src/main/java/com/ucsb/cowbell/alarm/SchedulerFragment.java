@@ -51,6 +51,7 @@ public class SchedulerFragment extends Fragment {
 
     private static final String FRAGMENT_TIME_PICKER_TAG = "fragment_time_picker";
     private static final String FRAGMENT_CARD_LIST = "fragment_card_list";
+    public static String whichCard;
 
     private AlarmAdapter mAlarmAdapter;
     private AlarmUtil mAlarmUtil;
@@ -105,6 +106,20 @@ public class SchedulerFragment extends Fragment {
         fillInTheBlankFab.setOnClickListener( new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+                whichCard = "card_preferences";
+                CardListFragment fragment = CardListFragment.newInstance();
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.container, fragment, FRAGMENT_CARD_LIST);
+                ft.addToBackStack(null);
+                ft.commit();
+            }
+        });
+
+        FloatingActionButton mcFab = (FloatingActionButton) rootView.findViewById(R.id.fab_multiple_choice);
+        mcFab.setOnClickListener( new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                whichCard = "mc_card";
                 CardListFragment fragment = CardListFragment.newInstance();
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.replace(R.id.container, fragment, FRAGMENT_CARD_LIST);
@@ -159,6 +174,10 @@ public class SchedulerFragment extends Fragment {
             mAlarmAdapter.deleteAlarm(alarm);
         }
     }
+
+    /**
+     * prevents user to go back and end the game without finishing
+     */
 
 
 }
